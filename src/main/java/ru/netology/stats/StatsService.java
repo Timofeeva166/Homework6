@@ -13,11 +13,7 @@ public class StatsService {
     }
 
     public int AverageSales(int[] sales) { //ищет среднюю сумму продаж
-        int sum = 0;
-
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
+        int sum = sumSales(sales);
         int average = sum / sales.length;
 
         return average;
@@ -47,13 +43,8 @@ public class StatsService {
     }
 
     public int AboveAverageSales(int[] sales) { //ищет количество месяцев с продажами выше среднего
-        int sum = 0;
+        int average = AverageSales(sales);
         int count = 0;
-
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
-        int average = sum / sales.length;
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > average) {
@@ -64,13 +55,8 @@ public class StatsService {
     }
 
     public int BelowAverageSales(int[] sales) { //ищет количество месяцев с продажами ниже среднего
-        int sum = 0;
+        int average = AverageSales(sales);
         int count = 0;
-
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-        }
-        int average = sum / sales.length;
 
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < average) {
